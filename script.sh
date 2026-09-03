@@ -6,7 +6,7 @@ if [ -f $output_file ]; then
   rm $output_file
 fi
 
-echo "ip_host,min_rtt_ms,avg_rtt_ms,max_rtt_ms" >> $output_file
+echo "ip_host,min_rtt_ms,avg_rtt_ms,max_rtt_ms,lat,lon" >> $output_file
 
 ping_stats() {
   # runs ping and extracts "min/avg/max" from the summary line (works for
@@ -14,16 +14,29 @@ ping_stats() {
   ping -c 5 -i 0.005 "$1" 2>/dev/null | grep -oE '[0-9.]+/[0-9.]+/[0-9.]+' | head -n1
 }
 
+geo_lookup() {
+  # looks up "lat,lon" for an ip via ip-api.com (free, no key needed)
+  local json
+  json=$(curl -s "http://ip-api.com/json/$1?fields=status,lat,lon")
+  if echo "$json" | grep -q '"status":"success"'; then
+    lat=$(echo "$json" | grep -oE '"lat":[-0-9.]+' | cut -d: -f2)
+    lon=$(echo "$json" | grep -oE '"lon":[-0-9.]+' | cut -d: -f2)
+    echo "$lat,$lon"
+  fi
+}
+
 write_row() {
-  # pings $1, writes a CSV row labeled $2: label,min,avg,max (blank fields if unresponsive)
+  # pings and geolocates $1, writes a CSV row labeled $2:
+  # label,min,avg,max,lat,lon (blank fields if unresponsive/unlocatable)
   local host="$1"
   local label="$2"
-  local stats
+  local stats geo
   stats=$(ping_stats "$host")
+  geo=$(geo_lookup "$host")
   if [ -n "$stats" ]; then
-    echo "$label,$(echo "$stats" | cut -d/ -f1),$(echo "$stats" | cut -d/ -f2),$(echo "$stats" | cut -d/ -f3)" >> $output_file
+    echo "$label,$(echo "$stats" | cut -d/ -f1),$(echo "$stats" | cut -d/ -f2),$(echo "$stats" | cut -d/ -f3),${geo:-,}" >> $output_file
   else
-    echo "$label,,," >> $output_file
+    echo "$label,,,,${geo:-,}" >> $output_file
   fi
 }
 
