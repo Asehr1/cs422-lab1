@@ -6,14 +6,13 @@
 1. Create and activate Python virtual environment<br>*python3 -m venv .venv*<br>*source .venv/bin/activate*
 1. Install required packages<br>*pip install -r requirements.txt*
 
-**TODO: need to combine scripts for both part 1 and part 2 into a single script**
-**Maybe we can change script.sh to be the single script that handles venv, required packeges, and running both part's scripts?**
+**TODO: need to combine scripts for both part 1 and part 2 into a single script. Maybe we can change script.sh to be the single script that handles venv, required packeges, and running both part's scripts?**
 
-**Question 1**
+**Question 1** \
 Script File: *part_1.py* \
 Scatterplot: *rtt_vs_distance.pdf* \
 
-**Question 2**
+**Question 2** \
 Script File: \
 Bar Chart: \
 Scatterplot: \
