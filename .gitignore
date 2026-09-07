@@ -1,1 +1,5 @@
+.venv
 ping_stats.txt
+hops1.csv
+rtt.csv
+rtt_vs_distance.pdf
