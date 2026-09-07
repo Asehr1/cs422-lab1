@@ -1,3 +1,4 @@
+*.swp
 .venv
 ping_stats.txt
 hops1.csv
