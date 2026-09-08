@@ -40,3 +40,4 @@ for ax, time, color in zip(axs, times, colors):
 axs[0].set_ylabel("RTT (ms)")
 plt.tight_layout()
 plt.savefig("rtt_vs_distance.pdf")
+plt.savefig("rtt_vs_distance.png", dpi=150)
