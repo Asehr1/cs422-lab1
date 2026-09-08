@@ -1,8 +1,5 @@
 #!/bin/bash
 
-#input=$(shuf -n 5 "listed_iperf3_servers.csv")
-#mapfile inp < listed_iperf3_servers.csv
-
 shuf -n 5 "listed_iperf3_servers.csv" | while IFS="," read -r ip other; do
   echo "hops,lat" > "$ip.csv"
   mapfile lines < <(traceroute -n -q 1 $ip | tail -n +2)
