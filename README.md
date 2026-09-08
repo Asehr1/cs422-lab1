@@ -36,3 +36,5 @@ Of the 191 hosts (190 servers + self), 187 responded to ping and 190 were geoloc
 both RTT and location data and are plotted below.
 
 **Plot:** [`rtt_vs_distance.pdf`](rtt_vs_distance.pdf)
+
+![RTT vs Distance scatter plots for min, avg, and max RTT](rtt_vs_distance.png)
