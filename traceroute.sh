@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Clears plot_files.txt
+: > "plot_files.txt"
+
 shuf -n 5 "listed_iperf3_servers.csv" | while IFS="," read -r ip other; do
   echo "hops,lat" > "$ip.csv"
   mapfile lines < <(traceroute -n -q 1 $ip | tail -n +2)
@@ -11,4 +14,6 @@ shuf -n 5 "listed_iperf3_servers.csv" | while IFS="," read -r ip other; do
       echo "$hops,NONE" >> "$ip.csv"
     fi
   done
+  # adds each filename to a new doc so that the Part 2 plots can be made
+  echo "$ip.csv" >> "plot_files.txt"
 done
