@@ -3,15 +3,18 @@
 # Clears plot_files.txt
 : > "plot_files.txt"
 
+mkdir -p ./trace_outputs
+rm -f ./trace_outputs/*
+
 shuf -n 5 "listed_iperf3_servers.csv" | while IFS="," read -r ip other; do
-  echo "hops,lat" > "$ip.csv"
+  echo "hops,lat" > "./trace_outputs/$ip.csv"
   mapfile lines < <(traceroute -n -q 1 $ip | tail -n +2)
   for line in "${lines[@]}"; do
     IFS=" " read -r hops addr lat ms <<< $line
     if [[ "$addr" != "*" ]]; then
-      echo "$hops,$lat" >> "$ip.csv"
+      echo "$hops,$lat" >> "./trace_outputs/$ip.csv"
     else
-      echo "$hops,NONE" >> "$ip.csv"
+      echo "$hops,NONE" >> "./trace_outputs/$ip.csv"
     fi
   done
   # adds each filename to a new doc so that the Part 2 plots can be made

@@ -14,7 +14,7 @@ for filename in filenames:
   hops = []
   latencies = []
 
-  with open(filename, "r") as f:
+  with open("./trace_outputs/"+filename, "r") as f:
     # Skip header line
     next(f)
 
