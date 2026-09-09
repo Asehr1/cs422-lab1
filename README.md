@@ -3,8 +3,7 @@
 **Setup Instructions**
 1. Clone the repo
 1. Navigate to the repo's top-level directory
-1. Create and activate Python virtual environment<br>*python3 -m venv .venv*<br>*source .venv/bin/activate*
-1. Install required packages<br>*pip install -r requirements.txt*
+1. Run fullscript.sh
 
 
 **Question 1** \
