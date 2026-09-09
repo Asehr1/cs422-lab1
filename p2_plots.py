@@ -1,7 +1,8 @@
+import os
+os.environ["OPENBLAS_NUM_THREADS"] = "1"  # avoids a threading issue with numpy/matplotlib on this machine
+
 import matplotlib.pyplot as pyplot
 import matplotlib.cm as cm
-
-export OPENBLAS_NUM_THREADS=1 # For some reason it tries to use a ton of threads and then doesn't work so I have to put this in I guess
 
 with open("plot_files.txt", "r") as f:
   filenames = [line.strip() for line in f]
