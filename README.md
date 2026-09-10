@@ -11,9 +11,9 @@ Script File: *part_1.py* \
 Scatterplot: *rtt_vs_distance.pdf* \
 
 **Question 2** \
-Script File: \
-Bar Chart: \
-Scatterplot: \
+Script Files: *traceroute.sh* and *p2_plots.py* \
+Bar Chart: *traceroute_barchart.png* \
+Scatterplot: *traceroute_scatter.png* \
 
 ---
 
