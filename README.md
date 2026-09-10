@@ -3,7 +3,7 @@
 **Setup Instructions**
 1. Clone the repo
 1. Navigate to the repo's top-level directory
-1. Run fullscript.sh
+1. Run fullscript.sh, the top-level script that runs all other shell and python scripts.
 
 
 **Question 1** \
