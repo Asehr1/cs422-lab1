@@ -8,12 +8,12 @@
 
 **Question 1** \
 Script File: *part_1.py* \
-Scatterplot: *rtt_vs_distance.pdf* \
+Scatterplot: *rtt_vs_distance.pdf*
 
 **Question 2** \
 Script Files: *traceroute.sh* and *p2_plots.py* \
 Bar Chart: *traceroute_barchart.png* \
-Scatterplot: *traceroute_scatter.png* \
+Scatterplot: *traceroute_scatter.png*
 
 ---
 
