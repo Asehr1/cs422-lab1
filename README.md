@@ -7,7 +7,7 @@
 
 
 **Question 1** \
-Script File: *part_1.py* \
+Script Files: *ping.sh* and *part_1.py* \
 Scatterplot: *rtt_vs_distance.pdf*
 
 **Question 2** \
