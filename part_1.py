@@ -1,5 +1,4 @@
 import requests
-import subprocess
 import pandas as pd
 import matplotlib.pyplot as plt
 import numpy as np
@@ -21,8 +20,6 @@ if my_status != "success":
     sys.exit(0)
 my_lat=float(my_lat)
 my_lon=float(my_lon)
-
-subprocess.call("./ping.sh")
 
 df = pd.read_csv("rtt.csv")
 

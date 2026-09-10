@@ -10,6 +10,7 @@ echo "Installing required packages"
 pip install -r requirements.txt
 
 echo "Running part 1"
+./ping.sh
 python3 part_1.py
 
 echo "Running part 2"
